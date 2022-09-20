@@ -1,0 +1,45 @@
+<p>
+    <a routerLink="/admin/products/new" class="btn btn-primary">New Product</a>
+</p>
+<P>
+    <input #query (keyup)="filter(query.value)" type="text" class="form-control" placeholder="Search...">
+</P>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of filteredProducts; index as i">
+            <td style="width: 20px;">{{ i + 1 }}</td>
+            <td>{{item.payload.val().title}}</td>
+            <td>{{item.payload.val().price | currency:'USD':'symbol'}}</td>
+            <td>
+                <a [routerLink]="['/admin/products/', item.key]">Edit</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<!-- <tfoot>
+        <tr>
+            <td class="text-right" colspan="4">
+                <pagination-controls class="pull-right" (pageChange)="p = $event"></pagination-controls>
+            </td>
+        </tr>
+    </tfoot> -->
+
+<!-- <div class="d-flex justify-content-between p-2">
+    <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
+        (pageChange)="refreshProducts()">
+    </ngb-pagination>
+
+    <select class="form-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshProducts()">
+        <option [ngValue]="5">5 items per page</option>
+        <option [ngValue]="10">10 items per page</option>
+        <option [ngValue]="15">15 items per page</option>
+    </select>
+</div> -->
