@@ -29,7 +29,7 @@ import { ProductFormComponent } from './admin/product-form/product-form.componen
 import { FormsModule } from '@angular/forms';
 import { CustomFormsModule } from 'ng2-validation';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { NgbdSortableHeader } from './admin/admin-products/sortable.directive';
+import { NgbdSortableHeader } from './admin/admin-products/admin-products.component';
 import { DecimalPipe } from '@angular/common';
 
 @NgModule({

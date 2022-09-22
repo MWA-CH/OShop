@@ -8,8 +8,8 @@
     <thead>
         <tr>
             <th>#</th>
-            <th>Title</th>
-            <th>Price</th>
+            <th scope="col" sortable="title" (sort)="onSort($event)">Title</th>
+            <th scope="col" sortable="price" (sort)="onSort($event)">Price</th>
             <th></th>
         </tr>
     </thead>
