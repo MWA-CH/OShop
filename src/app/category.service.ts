@@ -10,5 +10,7 @@ export class CategoryService {
   getCategories() {
     return this.db.list('/categories').valueChanges();
   }
-
+  getCategoriesWithKey() {
+    return this.db.list('/categories').snapshotChanges();
+  }
 }
