@@ -31,6 +31,7 @@ import { CustomFormsModule } from 'ng2-validation';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgbdSortableHeader } from './admin/admin-products/admin-products.component';
 import { DecimalPipe } from '@angular/common';
+import { ProductFilterComponent } from './products/product-filter/product-filter.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { DecimalPipe } from '@angular/common';
     AdminProductsComponent,
     AdminOrdersComponent,
     ProductFormComponent,
-    NgbdSortableHeader
+    NgbdSortableHeader,
+    ProductFilterComponent
   ],
   imports: [
     BrowserModule,
