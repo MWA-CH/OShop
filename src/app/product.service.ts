@@ -23,4 +23,7 @@ export class ProductService {
   delete(productId: any) {
     return this.db.object('/products/' + productId).remove();
   }
+  getAllWithSnapShotMethod() {
+    return this.db.list('/products').valueChanges();
+  }
 }
