@@ -32,6 +32,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { NgbdSortableHeader } from './admin/admin-products/admin-products.component';
 import { DecimalPipe } from '@angular/common';
 import { ProductFilterComponent } from './products/product-filter/product-filter.component';
+import { ProductCardComponent } from './product-card/product-card.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { ProductFilterComponent } from './products/product-filter/product-filter
     AdminOrdersComponent,
     ProductFormComponent,
     NgbdSortableHeader,
-    ProductFilterComponent
+    ProductFilterComponent,
+    ProductCardComponent
   ],
   imports: [
     BrowserModule,

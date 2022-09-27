@@ -3,7 +3,6 @@ import { CategoryService } from './../../category.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { take } from 'rxjs/operators';
-import { TwitterAuthProvider } from 'firebase/auth';
 
 @Component({
   selector: 'app-product-form',
@@ -12,7 +11,12 @@ import { TwitterAuthProvider } from 'firebase/auth';
 })
 export class ProductFormComponent implements OnInit {
   categories$: any;
-  product: any = {};
+  product: any = {
+    title: '',
+    price: '',
+    category: '',
+    imageUrl: ''
+  };
   id: any;
   constructor(
     private router: Router,
@@ -23,7 +27,15 @@ export class ProductFormComponent implements OnInit {
     this.categories$ = categoryService.getCategories();
 
     this.id = this.route.snapshot.paramMap.get('id');
-    if (this.id) this.productService.get(this.id).pipe(take(1)).subscribe(p => this.product = p);
+
+    if (this.id) this.productService.get(this.id).pipe(take(1)).subscribe((p: any) => {
+      this.product = {
+        title: p['payload'].val().title,
+        price: p['payload'].val().price,
+        category: p['payload'].val().category,
+        imageUrl: p['payload'].val().imageUrl
+      }
+    });
   }
 
   save(product: any) {
