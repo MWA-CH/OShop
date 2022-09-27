@@ -7,14 +7,7 @@
             <div class="row row-cols-2">
                 <ng-container *ngFor="let p of filteredProducts">
                     <div class="col">
-                        <div class="card" style="width: 18rem;">
-                            <img [src]="p.payload.val().imageUrl" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">{{p.payload.val().title}}</h5>
-                                <p class="card-text">{{p.payload.val().price | currency:'USD':'symbol'}}</p>
-                                <a href="#" class="btn btn-primary">Add to Cart</a>
-                            </div>
-                        </div>
+                        <product-card [product]="p"></product-card>
                     </div>
                 </ng-container>
             </div>

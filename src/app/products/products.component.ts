@@ -9,25 +9,38 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-  products: Product[] = [];
+  products: any = [];
   Prod: Product[] = [];
   filteredProducts: any[] = [];
   category: any;
   constructor(
-    route: ActivatedRoute,
+    private route: ActivatedRoute,
     productService: ProductService) {
     productService.getAll().subscribe((products: any) => {
-      this.products = products;
-
-      route.queryParamMap.subscribe(params => {
-        this.category = params.get('category');
-
-        this.filteredProducts = (this.category) ?
-          this.products.filter(p => p['payload'].val().category.toLowerCase() === this.category.toLowerCase()) :
-          this.products;
-      });
+      this.processProductsData(products);
+      this.filterProducts();
     });
 
+  }
+
+  processProductsData(products: any): void {
+    products.forEach((p: any) => {
+      this.products.push({
+        title: p['payload'].val().title,
+        price: p['payload'].val().price,
+        category: p['payload'].val().category,
+        imageUrl: p['payload'].val().imageUrl
+      });
+    });
+  }
+
+  filterProducts() {
+    this.route.queryParamMap.subscribe(params => {
+      this.category = params.get('category');
+      this.filteredProducts = (this.category) ?
+        this.products.filter((p: any) => p.category.toLowerCase() === this.category.toLowerCase()) :
+        this.products;
+    });
   }
 
   ngOnInit(): void {
