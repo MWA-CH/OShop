@@ -34,6 +34,7 @@ import { NgbdSortableHeader } from './admin/admin-products/admin-products.compon
 import { DecimalPipe } from '@angular/common';
 import { ProductFilterComponent } from './products/product-filter/product-filter.component';
 import { ProductCardComponent } from './product-card/product-card.component';
+import { ProductQuantityComponent } from './product-quantity/product-quantity.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { ProductCardComponent } from './product-card/product-card.component';
     ProductFormComponent,
     NgbdSortableHeader,
     ProductFilterComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    ProductQuantityComponent
   ],
   imports: [
     BrowserModule,
